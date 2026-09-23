@@ -1,5 +1,6 @@
 import { Ibook } from "@/types/booksType";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 interface IbookProps {
   book: Ibook;
@@ -76,9 +77,11 @@ const BookCard = ({ book }: IbookProps) => {
         </div>
 
         {/* Button */}
-        <button className="mt-5 w-full rounded-xl bg-gray-900 py-3 font-semibold text-white transition hover:bg-gray-700">
-          View Details
-        </button>
+        <Link href={`/books/${book.bookId}`}>
+          <button className="mt-5 w-full rounded-xl bg-gray-900 py-3 font-semibold text-white transition hover:bg-gray-700">
+            View Details
+          </button>
+        </Link>
       </div>
     </div>
   );

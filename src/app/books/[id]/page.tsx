@@ -1,3 +1,5 @@
+import ReadButton from "@/Components/shared/BookDetails/ReadButton";
+import WishlistButton from "@/Components/shared/BookDetails/WishlistButton";
 import { Ibook } from "@/types/booksType";
 import Image from "next/image";
 import Link from "next/link";
@@ -41,7 +43,7 @@ const BookDetailsPage = async ({ params }: IBookDetailsPageProps) => {
           <div className="grid grid-cols-1 gap-10 p-6 md:p-10 lg:grid-cols-[380px_1fr]">
             {/* Book Image */}
             <div className="flex justify-center">
-              <div className="group relative w-full max-w-[330px] overflow-hidden rounded-2xl shadow-2xl">
+              <div className="group relative w-full max-w-82.5 overflow-hidden rounded-2xl shadow-2xl">
                 <Image
                   src={book.image}
                   alt={book.bookName}
@@ -105,13 +107,9 @@ const BookDetailsPage = async ({ params }: IBookDetailsPageProps) => {
 
               {/* Buttons */}
               <div className="mt-8 flex flex-wrap gap-3">
-                <button className="btn btn-primary px-7">
-                  📖 Start Reading
-                </button>
+                <ReadButton book={book} />
 
-                <button className="btn btn-outline px-7">
-                  ♡ Add to Wishlist
-                </button>
+                <WishlistButton book={book} />
               </div>
             </div>
           </div>
